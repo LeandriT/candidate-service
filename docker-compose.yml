@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_candidate_service
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_USER: toor
+      MYSQL_PASSWORD: toor
+      MYSQL_DATABASE: candidate-service
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - candidate-service-net
+
+volumes:
+  mysql_data:
+
+networks:
+  candidate-service-net:
+    driver: bridge
