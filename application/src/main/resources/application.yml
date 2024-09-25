@@ -1,3 +1,16 @@
+springdoc:
+  api-docs:
+    enabled: true
+    path: /open-api/v3/docs  # URL donde se puede acceder a la documentación de la API
+  swagger-ui:
+    enabled: true
+    path: /open-api/v3/docs  # URL donde se puede acceder a Swagger UI
+    try-it-out-enabled: true  # Habilitar la opción de "Try it out"
+    filter: true  # Habilitar el filtro en Swagger UI
+    operationsSorter: method  # Opcional: ordenar operaciones por método
+    tagsSorter: alpha  # Opcional: ordenar etiquetas alfabéticamente
+  packages-to-scan: com.seek.candidate_service.controllers  # Paquete donde se encuentran los controladores
+
 spring:
   application:
     name: candidate-service
