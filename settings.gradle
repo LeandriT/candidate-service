@@ -1,1 +1,30 @@
-rootProject.name = 'candidate-service'
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    plugins {
+        id("io.spring.dependency-management") version "1.0.11.RELEASE"
+        id("org.springframework.boot") version "3.3.4"
+    }
+}
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral() // Define el repositorio aquí para las dependencias
+    }
+}
+rootProject.name = "candidate-service"
+
+// Incluir los subproyectos
+include(":application")
+project(":application").projectDir = file("./application")
+
+include(":domain")
+project(":domain").projectDir = file("./domain")
+
+include(":rest-api")
+project(":rest-api").projectDir = file("./infrastructure/entry-points/rest-api")
+
+include(":jpa-repository")
+project(":jpa-repository").projectDir = file("./infrastructure/driven-adapters/jpa-repository")
