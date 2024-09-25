@@ -25,5 +25,5 @@ tasks.named('bootJar') {
     archiveFileName.set("${project.parent?.name}.${archiveExtension.get()}")
 }
 bootRun {
-    mainClass.set('com.tu.paquete.PrincipalClass') // Reemplaza con la ruta de tu clase principal
+    mainClass.set('com.seek.candidate_service.CandidateServiceApplication') // Reemplaza con la ruta de tu clase principal
 }

@@ -1,6 +1,6 @@
-package com.seek.candidate_service.model;
+package com.seek.candidate_service.entity;
 
-import com.seek.candidate_service.model.abstracts.BaseModel;
+import com.seek.candidate_service.entity.abstracts.BaseModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -20,12 +20,12 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "candidates")
-@SQLDelete(sql = "UPDATE candidates SET is_deleted = true, deleted_at=now() WHERE uuid=?")
-@Where(clause = "is_deleted is false")
+@SQLDelete(sql = "UPDATE candidates SET is_deleted = true, deleted_at = NOW() WHERE uuid = ?")
+@Where(clause = "is_deleted = false")
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Candidate extends BaseModel {
+public class CandidateEntity extends BaseModel {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 

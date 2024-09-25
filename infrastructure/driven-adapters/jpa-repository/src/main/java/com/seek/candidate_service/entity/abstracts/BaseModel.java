@@ -1,4 +1,4 @@
-package com.seek.candidate_service.model.abstracts;
+package com.seek.candidate_service.entity.abstracts;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,9 +22,8 @@ import java.util.UUID;
 public abstract class BaseModel implements Serializable {
 
     @Id
-    @GeneratedValue
-    @Column(updatable = false, nullable = false)
-    private UUID uuid;
+    @Column(updatable = false, nullable = false, columnDefinition = "VARCHAR(36)")
+    private String uuid;
 
     @CreatedDate
     @Column(updatable = false)
@@ -58,4 +57,8 @@ public abstract class BaseModel implements Serializable {
         return "BaseModel {" + "uuid = " + uuid + "}";
     }
 
+    @PrePersist()
+    public void prePersist() {
+        this.uuid = UUID.randomUUID().toString();
+    }
 }

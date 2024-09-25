@@ -1,6 +1,6 @@
-package entity;
+package com.seek.candidate_service.dto.candidate.response;
 
-import entity.abstracts.Base;
+import com.seek.candidate_service.dto.abstracts.BaseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,8 +14,7 @@ import java.math.BigDecimal;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Candidate extends Base {
-
+public class CandidateResponse extends BaseDto {
     private String name;
 
     private String email;

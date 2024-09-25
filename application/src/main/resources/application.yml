@@ -1,6 +1,8 @@
 spring:
   application:
     name: candidate-service
+  jackson:
+    property-naming-strategy: SNAKE_CASE
   datasource:
     url: jdbc:mysql://localhost:3306/candidate-service?useSSL=false&allowPublicKeyRetrieval=true
     username: toor
@@ -20,7 +22,6 @@ spring:
       ddl-auto: none
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
         show_sql: false
         jdbc:
@@ -33,6 +34,16 @@ spring:
     baseline-on-migrate: true
 
 server:
-  tomcat:
-    max-threads: 200
-  connection-timeout: 20000
+  undertow:
+    max-http-threads: 200 # Número máximo de hilos para manejar solicitudes HTTP
+    min-http-threads: 10   # Número mínimo de hilos para manejar solicitudes HTTP
+    buffer-size: 16384      # Tamaño del búfer en bytes (16 KB)
+    direct-buffers: true    # Usar búferes directos para mejorar el rendimiento
+    io-threads: 10           # Número de hilos de entrada/salida
+    max-connections: 1000    # Número máximo de conexiones simultáneas
+    max-post-size: 10485760  # Tamaño máximo para las solicitudes POST (10 MB)
+  connection-timeout: 30s   # Tiempo de espera para la conexión
+  request-timeout: 30s       # Tiempo máximo para manejar una solicitud
+  error:
+    include-stacktrace: always
+    include-message: always

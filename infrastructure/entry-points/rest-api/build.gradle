@@ -10,7 +10,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4")
-    implementation("org.mapstruct:mapstruct:1.5.2.Final")
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final' // Asegúrate de usar la versión más reciente
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 configurations.all {
     exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"

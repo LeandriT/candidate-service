@@ -7,7 +7,7 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
-        basePackages = "com.seek.candidate_service.domain.usecase",
+        basePackages = "com.seek.candidate_service.use_case",
         includeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "^.+UseCaseImpl$"),
         useDefaultFilters = false
 )
