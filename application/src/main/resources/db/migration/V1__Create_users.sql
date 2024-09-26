@@ -5,11 +5,11 @@ CREATE TABLE users (
     password VARCHAR(255) DEFAULT NULL,
     role ENUM('USER', 'ADMIN') DEFAULT NULL,
     username VARCHAR(255) DEFAULT NULL,
-    email VARCHAR(255) DEFAULT NULL, -- Añadir columna email
+    email VARCHAR(255) DEFAULT NULL,
     is_deleted BOOLEAN DEFAULT FALSE,
     deleted_at DATETIME,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    UNIQUE KEY UK_username (username),
-    UNIQUE KEY UK_email (email)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+    created_at DATETIME,
+    updated_at DATETIME,
+    UNIQUE KEY UK_username (username(191)), -- Limitar el índice a los primeros 191 caracteres
+    UNIQUE KEY UK_email (email(191)) -- Limitar el índice a los primeros 191 caracteres
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
