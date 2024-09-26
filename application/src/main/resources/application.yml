@@ -49,6 +49,7 @@ spring:
     baseline-on-migrate: true
 
 server:
+  port: 8080
   undertow:
     max-http-threads: 200 # Número máximo de hilos para manejar solicitudes HTTP
     min-http-threads: 10   # Número mínimo de hilos para manejar solicitudes HTTP
