@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version "${springManagementVersion}"
@@ -17,8 +19,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('bootJar') {
-    archiveFileName.set("${project.parent?.name}.${archiveExtension.get()}")
+tasks.withType(BootJar) {
+    mainClass.set('com.seek.candidate_service.CandidateServiceApplication')
 }
 bootRun {
     mainClass.set('com.seek.candidate_service.CandidateServiceApplication') // Reemplaza con la ruta de tu clase principal
