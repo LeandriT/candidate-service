@@ -21,3 +21,6 @@ dependencies {
 configurations.all {
     exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
 }
+tasks.named('bootJar') {
+    enabled = false
+}
