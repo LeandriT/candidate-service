@@ -1,11 +1,11 @@
 package com.seek.candidate_service.repositories.user;
 
 
-import org.springframework.security.core.userdetails.UserDetails;
+import com.seek.candidate_service.entity.UserEntity;
 
 import java.util.Optional;
 
 public interface JpaAuthenticationRepository {
 
-    Optional<UserDetails> findByUsername(String username);
+    Optional<UserEntity> findByUsername(String username);
 }
