@@ -1,0 +1,5 @@
+candidate:
+  app:
+    jwtCookieName: bezkoder
+    jwtSecret: ======================BezKoder=Spring===========================
+    jwtExpirationMs: 30000

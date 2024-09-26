@@ -3,7 +3,7 @@ package com.seek.candidate_service.mapper;
 
 import com.seek.candidate_service.dto.candidate.request.CandidateRequest;
 import com.seek.candidate_service.dto.candidate.response.CandidateResponse;
-import entity.Candidate;
+import entity.candidate.Candidate;
 import org.mapstruct.*;
 
 @Mapper(

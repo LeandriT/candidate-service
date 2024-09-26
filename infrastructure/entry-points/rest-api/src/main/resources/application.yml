@@ -1,0 +1,5 @@
+candidates:
+  app:
+    jwtSecret: your_secret_key_here
+    jwtExpirationMs: 86400000  # Ejemplo de valor para 24 horas
+    jwtCookieName: your_cookie_name

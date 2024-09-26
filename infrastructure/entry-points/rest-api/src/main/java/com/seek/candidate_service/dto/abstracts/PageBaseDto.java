@@ -15,6 +15,7 @@ public class PageBaseDto<T> {
     private Integer totalElements;
     private Integer page;
     private Integer totalPages;
+    @Builder.Default()
     private List<T> content = Collections.emptyList();
     private Boolean empty;
 }

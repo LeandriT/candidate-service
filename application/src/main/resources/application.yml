@@ -12,6 +12,8 @@ springdoc:
   packages-to-scan: com.seek.candidate_service.controllers  # Paquete donde se encuentran los controladores
 
 spring:
+  main:
+    allow-circular-references: true
   application:
     name: candidate-service
   jackson:
@@ -60,3 +62,4 @@ server:
   error:
     include-stacktrace: always
     include-message: always
+# App Properties

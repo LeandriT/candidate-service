@@ -1,8 +1,8 @@
 package com.seek.candidate_service.mapper;
 
 
-import com.seek.candidate_service.entity.CandidateEntity;
-import entity.candidate.Candidate;
+import com.seek.candidate_service.entity.TokenEntity;
+import entity.token.Token;
 import org.mapstruct.*;
 
 @Mapper(
@@ -11,12 +11,10 @@ import org.mapstruct.*;
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
-public interface CandidateMapperJpa {
+public interface TokenMapperJpa {
     @Mapping(target = "uuid", ignore = true)
-    CandidateEntity toEntityJpa(Candidate candidate);
+    TokenEntity toEntityJpa(Token token);
 
     @Mappings({})
-    Candidate toEntityDomain(CandidateEntity candidateEntity);
-
-    CandidateEntity updateModel(Candidate candidate, @MappingTarget CandidateEntity candidateEntity);
+    Token toEntityDomain(TokenEntity tokenEntity);
 }
