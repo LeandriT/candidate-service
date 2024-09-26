@@ -17,10 +17,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('jar') {
-    enabled = false
-}
-
 tasks.named('bootJar') {
     archiveFileName.set("${project.parent?.name}.${archiveExtension.get()}")
 }

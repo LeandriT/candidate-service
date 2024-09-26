@@ -6,9 +6,7 @@ plugins {
 
 group = 'com.seek.candidate_service'
 version = '0.0.1-SNAPSHOT'
-springBoot {
-    mainClassName = 'com.seek.candidate_service.CandidateServiceApplication'
-}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
