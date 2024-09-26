@@ -17,9 +17,9 @@ spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
   datasource:
-    url: jdbc:mysql://localhost:3306/candidate-service?useSSL=false&allowPublicKeyRetrieval=true
-    username: toor
-    password: toor
+    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/candidate-service?useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:toor}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 100
@@ -42,7 +42,7 @@ spring:
           fetch_size: 50
 
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration
     baseline-on-migrate: true
 
