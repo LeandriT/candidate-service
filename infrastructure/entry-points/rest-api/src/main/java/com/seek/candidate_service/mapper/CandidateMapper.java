@@ -5,6 +5,7 @@ import com.seek.candidate_service.dto.candidate.request.CandidateRequest;
 import com.seek.candidate_service.dto.candidate.response.CandidateResponse;
 import entity.Candidate;
 import org.mapstruct.*;
+import org.mapstruct.factory.Mappers;
 
 @Mapper(
         componentModel = "spring",
@@ -13,7 +14,9 @@ import org.mapstruct.*;
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public interface CandidateMapper {
-    @Mappings({})
+
+    CandidateMapper INSTANCE = Mappers.getMapper(CandidateMapper.class);
+
     Candidate toEntity(CandidateRequest request);
 
     @Mappings({})
