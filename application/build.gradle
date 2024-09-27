@@ -1,27 +1,33 @@
-import org.springframework.boot.gradle.tasks.bundling.BootJar
-
 plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version "${springManagementVersion}"
     id 'java'
 }
+
 dependencies {
     implementation project(':domain')
-    implementation project(':rest-api')
-    implementation project(':jpa-repository')
+    implementation project(':infrastructure:driven-adapters:jpa-repository')
+    implementation project(':infrastructure:entry-points:rest-api')
 
     implementation 'com.fasterxml.jackson.core:jackson-databind'
     implementation 'com.fasterxml.jackson.core:jackson-core'
     implementation 'com.fasterxml.jackson.core:jackson-annotations'
 
-
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 
-tasks.withType(BootJar) {
+
+tasks.named('bootJar') {
+    archiveFileName.set("${project.name}.jar") // Usar un nombre de archivo fijo
     mainClass.set('com.seek.candidate_service.CandidateServiceApplication')
 }
-bootRun {
-    mainClass.set('com.seek.candidate_service.CandidateServiceApplication') // Reemplaza con la ruta de tu clase principal
+
+
+// Deshabilitar la tarea 'jar' si no se necesita
+tasks.named('jar') {
+    enabled = false
 }
